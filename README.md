@@ -22,7 +22,7 @@ Basically there is no any restriction to add this package to your project with m
 
 But you can use `Refreshable` with views starting with **iOS 14**. 
 
-Use `@available(iOS 14.0, *)` for this one.
+Use `@available(iOS 14.0, *)` or `if #available(iOS 14, *)` for this one.
 
 ## Installation
 
