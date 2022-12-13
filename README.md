@@ -20,7 +20,7 @@ You can use `Refreshable` with any view (e.g. LazyVStack).
 
 Basically there is no any restriction to add this package to your project with minimum developments below iOS 14. 
 
-But you can use `Refreshable` with views (e.g. LazyVStack) starting with **iOS 14**. 
+But you can use `Refreshable` with views starting with **iOS 14**. 
 
 Use `@available(iOS 14.0, *)` for this one.
 
