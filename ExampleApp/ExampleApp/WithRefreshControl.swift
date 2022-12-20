@@ -11,7 +11,7 @@ struct WithRefreshControl: View {
     
     var body: some View {
         ScrollView {
-            RefreshControl(coordinateSpace: .named("List"), offset: Constants.isPad ? 120 : 50) {
+            RefreshControl(Constants.isPad ? .long : .short, coordinateSpace: .named("List")) {
                 withAnimation {
                     finalCell += 1
                 }

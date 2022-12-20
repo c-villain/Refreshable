@@ -12,18 +12,29 @@ public struct RefreshControl: View {
     
     @State private(set) var refresh: Bool = false
     
-    public init(coordinateSpace: CoordinateSpace,
-                offset: CGFloat = 50,
+    public init(_ scrollDistance: ScrollDistance = .defaults,
+                coordinateSpace: CoordinateSpace,
                 onRefresh: @escaping (() -> Void)) {
         self.coordinateSpace = coordinateSpace
         self.onRefresh = onRefresh
-        self.scrollOffset = offset
-        self.factor =  offset / scrollOffset
+        scrollOffset = 50
+        
+        switch scrollDistance {
+        case .defaults:
+            self.factor = 1
+        case .custom(let factor):
+            self.factor = (factor < 1 && factor > 0) ? factor : 1
+        case .short:
+            self.factor = 0.9
+        case .long:
+            self.factor = 0.4
+        }
+        
     }
     
     public var body: some View {
         GeometryReader { geo in
-            if (geo.frame(in: coordinateSpace).midY > scrollOffset) {
+            if (geo.frame(in: coordinateSpace).midY * factor > scrollOffset) {
                 Spacer()
                     .onAppear {
                         if refresh == false {
@@ -55,7 +66,7 @@ public struct RefreshControl: View {
                    }.frame(width: 20, height: 20, alignment: .center)
                 }
             }.frame(width: geo.size.width)
-        }.padding(.top, -scrollOffset)
+        }.padding(.top, -50)
     }
 }
 

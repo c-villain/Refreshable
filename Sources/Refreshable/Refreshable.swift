@@ -4,7 +4,10 @@ import SwiftUI
 public extension View {
     
     @ViewBuilder
-    func refreshable(offset: CGFloat = 50, _ action: @escaping () -> ()) -> some View {
-        self.modifier(RefreshAction.init(offset: offset, action: action))
+    func refreshable(_ scrollDistance: ScrollDistance = .defaults,
+                     _ action: @escaping () -> ()) -> some View {
+        self.modifier(RefreshAction.init(
+            scrollDistance,
+            action: action))
     }
 }

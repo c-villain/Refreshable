@@ -4,16 +4,18 @@ import SwiftUI
 public struct RefreshAction: ViewModifier {
 
     private let action: (() -> Void)?
-    private let scrollOffset: CGFloat
+    private let scrollDistance: ScrollDistance
     
-    init(offset: CGFloat = 50, action: @escaping () -> Void) {
-        self.scrollOffset = offset
+    init(_ scrollDistance: ScrollDistance = .defaults,
+         action: @escaping () -> Void) {
+        self.scrollDistance = scrollDistance
         self.action = action
     }
     
     public func body(content: Content) -> some View {
         ScrollView {
-            RefreshControl(coordinateSpace: .named("ContentForRefreshable"), offset: scrollOffset) {
+            RefreshControl(scrollDistance,
+                           coordinateSpace: .named("ContentForRefreshable")) {
                 action?()
             }
             content
