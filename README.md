@@ -60,7 +60,7 @@ targets:
 Basically there are two ways to mark your view as `Refreshable`.
 
 <details>
-  <summary>The easiest one is to add modifier `refreshable` to your view.</summary>
+  <summary>The easiest one is to add modifier refreshable to your view.</summary>
   
 ```swift
 import Refreshable
@@ -84,7 +84,7 @@ struct YourView: View {
 </details>
 
 <details>
-  <summary>Second one is to add manually `RefreshControl` to your view implementation. 
+  <summary>Second one is to add manually RefreshControl to your view implementation. 
   Don't forget to name your view’s coordinate space!</summary>
   
 
@@ -104,6 +104,37 @@ struct YourView: View {
             }
         }
         .coordinateSpace(name: "List") // <= DON'T FORGET
+    }
+}
+```
+
+</details>
+
+<details>
+  <summary>To control responsiveness for refreshable during scrolling use ScrollDistance. Or use defaults 😊.</summary>
+  
+
+```swift
+import Refreshable
+
+struct Constants {
+    public static let isPad: Bool = UIDevice.current.userInterfaceIdiom == .pad
+}
+
+struct YourView: View {
+    
+    var body: some View {
+        ScrollView {
+            RefreshControl(Constants.isPad ? .long : .short, // <= HERE
+                           coordinateSpace: .named("List")) { 
+                // do your work on refresh here
+            }
+            
+            LazyVStack {
+                ...
+            }
+        }
+        .coordinateSpace(name: "List")
     }
 }
 ```
