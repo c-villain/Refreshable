@@ -1,10 +1,12 @@
 # Refreshable
 
-<p align="center">
-     <img src="https://img.shields.io/badge/release-0.2.0-blue" />
-    <img src="https://img.shields.io/badge/platform-IOS-blue" />
-     <img src="https://img.shields.io/badge/license-MIT-blue" />
-</p>
+[![Latest release](https://img.shields.io/github/v/release/c-villain/Refreshable?color=brightgreen&label=version)](https://github.com/c-villain/Refreshable/releases/latest)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fc-villain%2FRefreshable%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/c-villain/Refreshable)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fc-villain%2FRefreshable%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/c-villain/Refreshable)
+[![](https://img.shields.io/badge/SPM-supported-DE5C43.svg?color=brightgreen)](https://swift.org/package-manager/)
+![](https://img.shields.io/github/license/c-villain/Refreshable)
+[![contact: @lexkraev](https://img.shields.io/badge/contact-%40lexkraev-blue.svg?style=flat)](https://t.me/lexkraev)
+[![subscribe: @swiftui_dev](https://img.shields.io/badge/subscribe-%40swiftui_dev-blue.svg?style=flat)](https://t.me/swiftui_dev)
 
 Library for marking any SwiftUI view as refreshable, similar to Apple's [```refreshable(action:)```](https://developer.apple.com/documentation/swiftui/view/refreshable(action:)) that available from iOS 15 and only in List 🤷🏼‍♂️.
 
